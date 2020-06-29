@@ -10,6 +10,7 @@ import { MobileMenuComponent } from './components/mobile-menu/mobile-menu.compon
 import { AboutComponent } from './components/about/about.component';
 import { DetailsComponent } from './components/details/details.component';
 import { AllRentalsComponent } from './components/all-rentals/all-rentals.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AllRentalsComponent } from './components/all-rentals/all-rentals.compon
     MobileMenuComponent,
     AboutComponent,
     DetailsComponent,
-    AllRentalsComponent
+    AllRentalsComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
