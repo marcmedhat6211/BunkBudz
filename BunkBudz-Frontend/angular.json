@@ -145,6 +145,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "BunkBudz-Frontend"
+    }
+  },
+  "defaultProject": "BunkBudz-Frontend",
+  "cli": {
+    "analytics": false
+  }
 }
