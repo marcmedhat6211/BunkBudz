@@ -23,6 +23,7 @@ class CreateAdsTable extends Migration
             $table->boolean('pool')->nullable();
             $table->boolean('fitness_center')->nullable();
             $table->boolean('parking')->nullable();
+            $table->boolean('free_parking')->nullable();
             $table->boolean('wheelchair_access')->nullable();
             $table->boolean('wifi')->nullable();
             $table->boolean('ac')->nullable();
