@@ -12,6 +12,8 @@ import { DetailsComponent } from './components/details/details.component';
 import { AllRentalsComponent } from './components/all-rentals/all-rentals.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AdFormComponent } from './components/ad-form/ad-form.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { AdFormComponent } from './components/ad-form/ad-form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

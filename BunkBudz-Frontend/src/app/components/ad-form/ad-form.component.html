@@ -16,11 +16,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-7 mb-5">
-                <form action="#" class="contact-form">
+                <form method="POST" action="#" #createAd=ngForm class="contact-form" (ngSubmit)="onSubmit()">
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label class="font-weight-bold" for="location">Location</label>
-                            <select class="form-control" name="location" id="location">
+                            <select class="form-control" name="location" id="location" [(ngModel)]="form.location">
                                 <option value="Alberta">Alberta</option>
                                 <option value="British Columbia">British Columbia</option>
                                 <option value="Manitoba">Manitoba</option>
@@ -37,31 +37,42 @@
                         </div>
                     </div>
                     <div class="row form-group">
+                        <div class="col-md-12 mb-3 mb-md-0">
+                            <label class="font-weight-bold" for="type">Type</label>
+                            <select class="form-control" name="type" id="type" [(ngModel)]="form.type">
+                                <option value="house">House</option>
+                                <option value="apartment">Apartment</option>
+                                <option value="room">Room</option>
+                                <option value="basement suite">Basement Suite</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row form-group">
                         <div class="col-md-12">
                             <label class="font-weight-bold" for="price">Price</label>
-                            <input type="text" id="email" class="form-control" placeholder="Price">
+                            <input type="text" id="price" name="price" class="form-control" placeholder="Price" [(ngModel)]="form.price">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="font-weight-bold" for="description">Description</label>
-                            <textarea type="text" id="description" cols="30" rows="5" class="form-control" placeholder="Enter Description"></textarea>
+                            <textarea type="text" id="description" name="description" cols="30" rows="5" class="form-control" placeholder="Enter Description" [(ngModel)]="form.description"></textarea>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label class="font-weight-bold" for="occupant_gender">Occupant Gender</label>
-                            <select class="form-control" name="occupant_gender" id="occupant_gender">
-                                <option value="male">male</option>
-                                <option value="female">female</option>
-                                <option value="other">other</option>
+                            <select class="form-control" name="occupant_gender" id="occupant_gender" [(ngModel)]="form.occupant_gender">
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
                             </select>
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label class="font-weight-bold" for="rental_type">Rental Type</label>
-                            <select class="form-control" name="rental_type" id="rental_type">
+                            <select class="form-control" name="rental_type" id="rental_type" [(ngModel)]="form.rental_type">
                                 <option value="roommate">roommate</option>
                                 <option value="flatmate">flatmate</option>
                                 <option value="other">other</option>
@@ -71,7 +82,7 @@
                     <div class="row form-group">
                         <div class="col-md-12 mb-3 mb-md-0">
                             <label class="font-weight-bold" for="rental_term">Rental Term</label>
-                            <select class="form-control" name="rental_term" id="rental_term">
+                            <select class="form-control" name="rental_term" id="rental_term" [(ngModel)]="form.rental_term">
                                 <option value="short term">short term</option>
                                 <option value="long term">long term</option>
                             </select>
@@ -80,58 +91,58 @@
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="font-weight-bold" for="bedrooms_number">Bedrooms Number</label>
-                            <input type="number" id="bedrooms_number" class="form-control" placeholder="Bedrooms Number">
+                            <input type="number" name="bedrooms_number" id="bedrooms_number" class="form-control" placeholder="Bedrooms Number" [(ngModel)]="form.bedrooms_number">
                         </div>
                     </div>
                     <div class="row form-group">
                         <div class="col-md-12">
                             <label class="font-weight-bold" for="baths_number">Baths Number</label>
-                            <input type="number" id="baths_number" class="form-control" placeholder="Baths Number">
+                            <input type="number" name="baths_number" id="baths_number" class="form-control" placeholder="Baths Number" [(ngModel)]="form.baths_number">
                         </div>
                     </div>
                     <br>
                     <h3 class="font-weight-bold">Availability</h3>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="start_date">From</label>
-                        <input type="date" id="start_date" class="form-control">
+                        <input type="date" name="start_date" id="start_date" class="form-control" [(ngModel)]="form.start_date">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="end_date">To</label>
-                        <input type="date" id="end_date" class="form-control">
+                        <input type="date" name="end_date" id="end_date" class="form-control" [(ngModel)]="form.end_date">
                     </div>
                     <br>
                     <h3 class="font-weight-bold">Aminities</h3>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="utilities">Utilities Included</label>
-                        <input type="checkbox" name="utilities" id="utilities" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="utilities" id="utilities" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.utilities">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="pool">Pool</label>
-                        <input type="checkbox" name="pool" id="pool" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="pool" id="pool" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.pool">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="fitness_center">Fitness Center</label>
-                        <input type="checkbox" name="fitness_center" id="fitness_center" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="fitness_center" id="fitness_center" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.fitness_center">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="parking">Parking</label>
-                        <input type="checkbox" name="parking" id="parking" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="parking" id="parking" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.parking">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="free_parking">Free Parking</label>
-                        <input type="checkbox" name="free_parking" id="free_parking" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="free_parking" id="free_parking" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.free_parking">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="wheelchair_access">Wheelchair Access</label>
-                        <input type="checkbox" name="wheelchair_access" id="wheelchair_access" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="wheelchair_access" id="wheelchair_access" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.wheelchair_access">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="wifi">Wifi</label>
-                        <input type="checkbox" name="wifi" id="wifi" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="wifi" id="wifi" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.wifi">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="ac">AC</label>
-                        <input type="checkbox" name="ac" id="ac" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="ac" id="ac" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.ac">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="nearby_grocery_store">Nearby Grocery Store</label>
@@ -139,46 +150,46 @@
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="furnished">Furnished</label>
-                        <input type="checkbox" name="furnished" id="furnished" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="furnished" id="furnished" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.furnished">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="pet_friendly">Pet Friendly</label>
-                        <input type="checkbox" name="pet_friendly" id="pet_friendly" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="pet_friendly" id="pet_friendly" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.pet_friendly">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="private_bath">Private Bath</label>
-                        <input type="checkbox" name="private_bath" id="private_bath" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="private_bath" id="private_bath" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.private_bath">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="smoking_allowed">Smoking Allowed</label>
-                        <input type="checkbox" name="smoking_allowed" id="smoking_allowed" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="smoking_allowed" id="smoking_allowed" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.smoking_allowed">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="party_room">Party Room</label>
-                        <input type="checkbox" name="party_room" id="party_room" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="party_room" id="party_room" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.party_room">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="security_on_site">Security On Site</label>
-                        <input type="checkbox" name="security_on_site" id="security_on_site" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="security_on_site" id="security_on_site" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.security_on_site">
                     </div>
                     <br>
                     <h3 class="font-weight-bold">Public Transportation</h3>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="subway">Subway</label>
-                        <input type="checkbox" name="subway" id="subway" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="subway" id="subway" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.subway">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="bus">Bus</label>
-                        <input type="checkbox" name="bus" id="bus" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="bus" id="bus" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.bus">
                     </div>
                     <div class="col-md-12">
                         <label class="font-weight-bold" for="train">Train</label>
-                        <input type="checkbox" name="train" id="train" style="margin-left: 5px; zoom: 1.3;">
+                        <input type="checkbox" name="train" id="train" style="margin-left: 5px; zoom: 1.3;" [(ngModel)]="form.train">
                     </div>
                     <br>
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <input type="submit" value="Create Ad" class="btn btn-primary py-3 px-4">
+                            <input type="submit" value="Create Ad" class="btn btn-primary py-3 px-4" [disabled]="!createAd.valid">
                         </div>
                     </div>
                 </form>
