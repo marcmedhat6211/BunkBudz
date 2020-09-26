@@ -6,15 +6,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Ad;
 use App\Http\Requests\AdRequest;
+use App\Http\Resources\AdResource;
 
 
 class AdController extends Controller
 {
     public function create(AdRequest $request)
     {
-        // dd(request());
-        // dd($request->location);
         $ad = Ad::create([
+            'id' => $request->id,
             'user_id' => $request->user_id,
             'location' => $request->location,
             'price' => $request->price,
@@ -52,5 +52,12 @@ class AdController extends Controller
             'message' => 'Ad Created Successfully',
             'ad' => $ad
         ]);
+    }
+
+    public function show($ad)
+    {
+        return new AdResource(
+            Ad::find($ad)
+        );
     }
 }
