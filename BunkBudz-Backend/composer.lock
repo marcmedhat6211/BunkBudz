@@ -381,8 +381,9 @@
             "require": {
                 "doctrine/lexer": "^1.0.1",
                 "php": ">=5.5",
-                "symfony/polyfill-intl-idn": "^1.10"
-            },
+                "symfony/polyfill-intl-idn": "^1.10",
+                "symfony/http-kernel": "5.1.5"
+            },        
             "require-dev": {
                 "dominicsayers/isemail": "^3.0.7",
                 "phpunit/phpunit": "^4.8.36|^7.5.15",
