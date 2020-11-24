@@ -14,6 +14,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { AdFormComponent } from './components/ad-form/ad-form.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { AdDetailsComponent } from './components/ad-details/ad-details.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     DetailsComponent,
     AllRentalsComponent,
     ContactComponent,
-    AdFormComponent
+    AdFormComponent,
+    AdDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { AllRentalsComponent } from './components/all-rentals/all-rentals.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AdFormComponent } from './components/ad-form/ad-form.component';
+import { AdDetailsComponent } from './components/ad-details/ad-details.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,10 @@ const routes: Routes = [
   {
     path:'create-ad',
     component: AdFormComponent
+  },
+  {
+    path:':ad-details/:id',
+    component: AdDetailsComponent
   }
 ];
 

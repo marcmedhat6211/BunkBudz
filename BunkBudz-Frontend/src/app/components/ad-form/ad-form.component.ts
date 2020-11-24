@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { AdsService } from 'src/app/services/ads.service';
-// import { NgForm } from '@angular/forms';
+import { AdDetails } from 'src/app/AdDetails';
+import { Router,ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-ad-form',
@@ -10,9 +10,9 @@ import { AdsService } from 'src/app/services/ads.service';
 })
 export class AdFormComponent implements OnInit {
 
-  // f:NgForm
+  adDetailsObj: AdDetails;
 
-  constructor(public adsService: AdsService) { }
+  constructor(public adsService: AdsService, private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -51,8 +51,11 @@ export class AdFormComponent implements OnInit {
   }
 
   onSubmit(){
-    this.adsService.createAd(this.form).subscribe((data:any[])=>{
-      console.log(data);
+    this.adsService.createAd(this.form).subscribe((data:any)=>{
+      this.adDetailsObj = data.ad;
+      console.log(data.ad);
+      console.log(data.ad.id);
+      this.router.navigateByUrl(`/ad-details/${data.ad.id}`);
     })
   }
 
