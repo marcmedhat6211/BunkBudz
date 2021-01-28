@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AdsService } from 'src/app/services/ads.service';
 import { AdDetails } from 'src/app/AdDetails';
 import { Router,ActivatedRoute } from '@angular/router';
+import { ImagesService } from 'src/app/services/images.service';
+import { Images } from 'src/app/Images';
 
 @Component({
   selector: 'app-ad-form',
@@ -11,8 +13,9 @@ import { Router,ActivatedRoute } from '@angular/router';
 export class AdFormComponent implements OnInit {
 
   adDetailsObj: AdDetails;
+  images: Images;
 
-  constructor(public adsService: AdsService, private router: Router) {}
+  constructor(public adsService: AdsService, public imagesService: ImagesService, private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -50,12 +53,22 @@ export class AdFormComponent implements OnInit {
     baths_number: null
   }
 
+  public imagesForm = {
+    ad_id: 16,
+    image: null,
+  }
+
   onSubmit(){
     this.adsService.createAd(this.form).subscribe((data:any)=>{
       this.adDetailsObj = data.ad;
       console.log(data.ad);
       console.log(data.ad.id);
       this.router.navigateByUrl(`/ad-details/${data.ad.id}`);
+    })
+
+    this.imagesService.createImage(this.imagesForm).subscribe((data:any)=>{
+      this.images = data.image;
+      console.log(data.image.ad_id);
     })
   }
 

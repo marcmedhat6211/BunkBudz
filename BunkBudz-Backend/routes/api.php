@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'api',], function($router){
     Route::post('ads/create', 'API\AdController@create');
     Route::get('ads/{ad}', 'API\AdController@show');
+    Route::post('images/create', 'API\ImagesController@create');
+    Route::get('images/{image}', 'API\ImagesController@show');
 });
 
 
